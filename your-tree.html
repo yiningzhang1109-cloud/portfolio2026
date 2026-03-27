@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Tree — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;
+  display:flex;align-items:center;gap:.8rem;
+  background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;
+  border-radius:40px;border:1px solid rgba(0,0,0,.12);
+  backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);
+  font-family:'Atkinson Hyperlegible',sans-serif;font-size:.88rem;color:#333;
+  text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+
+/* HEADER */
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;
+  text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;
+  font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;
+  color:var(--ink);line-height:.92;letter-spacing:-.02em;
+  max-width:100%;margin-bottom:3.5rem;
+  text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;
+  padding:1.8rem 0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:.3rem}
+.meta-item span{font-size:.9rem;color:var(--ink)}
+
+/* COVER */
+.cover-img{width:100%;height:72vh;object-fit:cover;display:block}
+
+/* TEXT SECTIONS */
+.section{padding:4rem 2.5rem;max-width:760px}
+.section.wide{max-width:none}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;
+  text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+
+/* GRIDS */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.grid-4 img{width:100%;height:320px;object-fit:cover;display:block}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.grid-3 img{width:100%;height:260px;object-fit:cover;display:block}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+.grid-2 img{width:100%;height:280px;object-fit:cover;display:block}
+
+/* TWO COL text + image */
+.two-col{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.two-col .text{padding:4rem 3rem 4rem 2.5rem}
+.two-col .text p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.two-col img{width:100%;height:100%;object-fit:contain;
+  background:#f8f4ee;padding:2rem;min-height:320px;display:block}
+
+/* FULL IMAGE */
+.full-img{width:100%;height:55vh;object-fit:cover;display:block}
+
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section{padding:3rem 1.5rem}
+  .grid-4,.grid-3{grid-template-columns:1fr 1fr}
+  .two-col{grid-template-columns:1fr}
+  .back-btn{left:1.5rem;top:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">Data Physicalization</span>
+  <p class="proj-name">"Your Tree"</p>
+  <h1 class="proj-question">"Atlanta has 4.2 million trees. I couldn't name a single one."</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Solo</span></div>
+    <div class="meta-item"><label>Year</label><span>2024</span></div>
+    <div class="meta-item"><label>Tools</label><span>3D Printing · Rhino · Wood PLA</span></div>
+  </div>
+</div>
+
+<img class="cover-img" src="images-your-tree/cover.jpg" alt="Your Tree physical artifact">
+
+<!-- CONCEPT -->
+<div class="section">
+  <span class="section-label">Concept</span>
+  <p>Your Tree is a data physicalization project that translates one week of personal urban encounters into a tangible, reconfigurable object.</p>
+  <p>Atlanta calls itself a city in a forest, yet the forest stays abstract. This project asked what it means to truly notice something. I spent one week documenting trees I actually encountered, then physicalized that data into a 3D printed structure where each branch holds a memory, a location, a moment of attention. The branches are removable and rearrangeable, so the archive can grow, shift, and be reinterpreted over time.</p>
+</div>
+
+<!-- FOUR TREES -->
+<div class="grid-4">
+  <img src="images-your-tree/tree1.jpg" alt="Atlanta street tree 1">
+  <img src="images-your-tree/tree2.jpg" alt="Atlanta street tree 2">
+  <img src="images-your-tree/tree3.jpg" alt="Atlanta street tree 3">
+  <img src="images-your-tree/tree4.jpg" alt="Atlanta street tree 4">
+</div>
+
+<div class="divider"></div>
+
+<!-- MATERIAL & METAPHOR -->
+<div class="two-col">
+  <div class="text">
+    <span class="section-label">Material & Metaphor</span>
+    <p>The material choice carries its own argument. Wood-fill PLA looks and feels like wood but is fundamentally plastic engineered to perform naturalness. Using a manufactured material to represent data about actual nature creates a productive tension at the center of the object.</p>
+    <p>The form draws on tree grafting as both technique and metaphor. Grafting forces two organisms that would never naturally grow together into a single structure. The junction point, where the graft either holds or fails, is where meaning lives. Each branch in this project is a graft: a personal memory attached to a shared urban landscape, held together by attention rather than biology.</p>
+  </div>
+  <img src="images-your-tree/graft.png" alt="Tree grafting diagram">
+</div>
+
+<div class="divider"></div>
+
+<!-- PROCESS: DATA TO FORM -->
+<div class="section">
+  <span class="section-label">From Path to Branch</span>
+  <p>Each branch encodes a specific encounter: which tree, where, and the route taken to find it. Using Google Maps screenshots of my scooter routes, I simplified each path into 3 to 5 angular segments and mapped them onto branch geometry, creating faceted, geometric forms. The abstraction emphasized the mediated, digitized nature of how I was recording these experiences.</p>
+  <p>The scooter became significant to the project's meaning. It was fast enough to cover distance, allowing me to encounter trees across different neighborhoods, but slow enough that I could actually notice them. I was finding nature through a mechanized tool — a perfect parallel to the wood-fill PLA: mechanical means producing apparently natural outcomes.</p>
+</div>
+
+<!-- RHINO SCREENSHOTS -->
+<div class="grid-4">
+  <img src="images-your-tree/rhino1.png" alt="Rhino 3D modeling process 1">
+  <img src="images-your-tree/rhino2.png" alt="Rhino 3D modeling process 2">
+  <img src="images-your-tree/rhino3.png" alt="Rhino 3D modeling process 3">
+  <img src="images-your-tree/rhino4.png" alt="Rhino 3D modeling process 4">
+</div>
+
+<div class="divider"></div>
+
+<!-- PROTOTYPE -->
+<div class="two-col" style="grid-template-columns:1fr 1fr">
+  <div class="text">
+    <span class="section-label">Technical Process</span>
+    <p>Rather than modeling the tree stump from scratch, I sourced a base model from Thingiverse — a decision that was not just pragmatic but conceptually fitting. Even the supposed foundation of the project was manufactured. In Rhino, I designed an inverted clip mechanism that grips the year-ring ridges of the stump, allowing branches to be attached and removed without tools.</p>
+    <p>I tested multiple tolerances before arriving at a fit that was tight enough to hold but loose enough to remove and reinsert without breaking. The exposed junction is intentional: it does not hide the mechanism but presents it as part of the work.</p>
+  </div>
+  <img src="images-your-tree/prototype.jpg" alt="3D printed prototype" style="object-fit:cover;padding:0;background:none">
+</div>
+
+<div class="divider"></div>
+
+<!-- PROCESS PHOTOS -->
+<div class="grid-2">
+  <img src="images-your-tree/process1.png" alt="Process documentation 1">
+  <img src="images-your-tree/process2.png" alt="Process documentation 2">
+</div>
+
+<div class="divider"></div>
+
+<!-- REFLECTION -->
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">What It Opened</span>
+  <p>The grafting metaphor raised questions the project did not fully resolve. Do all experiences take equally? Can some be rejected? Is my relationship to urban nature fundamentally about stitching together incompatible elements? The modular system invites ongoing reconfiguration, mapping not just where I went but how memory itself accumulates and shifts over time.</p>
+  <p>The form also suggests expansion: branches could map shared memories between people, mark the places that structure a life in a new city, or document seasonal change across a year. The archive is open.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

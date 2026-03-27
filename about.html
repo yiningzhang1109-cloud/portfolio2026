@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#000;font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.15);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#000;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.4)}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#000;fill:none}
+
+/* NAME HEADER */
+.header{padding:8rem 2.5rem 3rem}
+.header-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(5rem,12vw,10rem);
+  font-weight:300;font-style:italic;
+  color:#000;line-height:.88;letter-spacing:-.02em;
+  margin-bottom:1.2rem}
+.header-role{
+  font-family:'Atkinson Hyperlegible',sans-serif;
+  font-size:.78rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(0,0,0,.35)}
+
+/* DIVIDER */
+.rule{height:1px;background:rgba(0,0,0,.1);margin:0 2.5rem}
+
+/* PARAGRAPHS */
+.para{padding:4rem 2.5rem;max-width:900px}
+.para-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.9rem;font-style:italic;
+  color:rgba(0,0,0,.25);display:block;
+  margin-bottom:1.4rem;letter-spacing:.05em}
+.para p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,2.8vw,2.1rem);
+  font-weight:300;line-height:1.55;
+  color:#000;letter-spacing:-.01em}
+.para p em{font-style:italic;color:rgba(0,0,0,.55)}
+
+/* BOTTOM BACK */
+.bottom-back{
+  padding:5rem 2.5rem 6rem;
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,.1)}
+.bottom-back a{
+  display:inline-flex;align-items:center;gap:1.2rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:300;font-style:italic;
+  color:#000;text-decoration:none;opacity:.5;
+  transition:opacity .2s}
+.bottom-back a:hover{opacity:1}
+.bottom-back svg{width:32px;height:32px;stroke:#000;fill:none}
+
+@media(max-width:768px){
+  .header{padding:6rem 1.5rem 2.5rem}
+  .para{padding:3rem 1.5rem}
+  .rule{margin:0 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="header">
+  <h1 class="header-name">Yining Zhang</h1>
+  <p class="header-role">Aging HCI · AI Literacy · Experience Design · Storytelling · Gamification</p>
+</div>
+
+<div class="rule"></div>
+
+<div class="para">
+  <span class="para-num">01</span>
+  <p>Yining's research centers on Aging HCI, AI Literacy, and Gamification. Around these interests, he has explored interaction design, data visualization, storytelling, game design, and AI-generated content. He believes good design is about helping people from all walks of life embrace technology on their own terms. He is drawn to the meaning technology carries: the AI embedded <em>smartly</em> in a tool, gamified ways of learning and thinking, and designs that linger.</p>
+</div>
+
+<div class="rule"></div>
+
+<div class="para">
+  <span class="para-num">02</span>
+  <p>Yining studied Media and Communication at Xi'an Jiaotong-Liverpool University, and is currently completing an M.S. in Global Media and Culture at Georgia Institute of Technology. He works as a Research Assistant in the TechsAge Lab, contributing to the Tele-TaiChi project, designing for movement, rehabilitation, and social connection among older adults with disabilities.</p>
+</div>
+
+<div class="rule"></div>
+
+<div class="para">
+  <span class="para-num">03</span>
+  <p>These are some of the things he has made and is currently making: data physicalizations, critical installations, interactive fiction, educational RPGs, speculative design objects, interactive narratives, physical computing installations, AI workflow tools, and Claude skills. Head back to the index and see what catches your eye.</p>
+</div>
+
+<div class="bottom-back">
+  <a href="index.html">
+    <svg viewBox="0 0 24 24" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

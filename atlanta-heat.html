@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlanta Heat — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;
+  display:flex;align-items:center;gap:.8rem;
+  background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;
+  border-radius:40px;border:1px solid rgba(0,0,0,.12);
+  backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);
+  font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;
+  text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;
+  font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;
+  color:var(--ink);line-height:.92;letter-spacing:-.02em;
+  width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;
+  padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.meta-item span{font-size:.9rem;color:var(--ink)}
+
+.video-label{font-size:.62rem;color:var(--muted);letter-spacing:.15em;
+  text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;
+  border-bottom:1px solid var(--border)}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;background:#000}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+.section{padding:4rem 2.5rem;max-width:760px}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;
+  text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section{padding:3rem 1.5rem}
+  .back-btn{left:1.5rem;top:1.5rem}
+  .proj-meta{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">Critical Data Visualization Installation</span>
+  <p class="proj-name">Atlanta Heat</p>
+  <h1 class="proj-question">"Your neighborhood and mine are three miles apart. Why does yours have fans that still work?"</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Team</span></div>
+    <div class="meta-item"><label>Year</label><span>2025</span></div>
+    <div class="meta-item"><label>Tools</label><span>P5.js · Figma</span></div>
+    <div class="meta-item"><label>Exhibition</label><span>Georgia Tech Media Bridge</span></div>
+  </div>
+</div>
+
+<div class="video-label">Installation Demo</div>
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/w8RZtwTQsOk?rel=0&modestbranding=1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+
+<div class="section">
+  <span class="section-label">Concept</span>
+  <p>Atlanta Heat is a critical data visualization installation currently displayed on Georgia Tech's Media Bridge, exploring heat vulnerability disparities across Atlanta neighborhoods through motion, sound, and failure.</p>
+  <p>Heat vulnerability data exists. What it lacks is urgency. This project asked a specific design question: how do you make inequality visible and immediate to an audience that is geographically close to it but experientially distant from it?</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <span class="section-label">Design Logic</span>
+  <p>Each neighborhood is represented by a rotating fan. Rotation speed is driven directly by heat vulnerability data: lower vulnerability, faster spin. As vulnerability increases, fans slow, shift toward red, and eventually break down entirely, accompanied by engine sounds that build and distort until the moment of collapse. The sound of a fan dying is not a metaphor. It is what the data sounds like when you let it behave honestly.</p>
+  <p>The grid is arranged geographically relative to Georgia Tech, so the spatial relationship between the campus and the most affected communities is physically present without requiring a map. The 30-second motif compresses the stakes into the time it takes to walk from one block to the next, replacing statistical distance with felt proximity.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="video-label">On Display — Georgia Tech Media Bridge</div>
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/KR1UU9Mw20M?rel=0&modestbranding=1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">Critical Approach</span>
+  <p>The project departs from how heat vulnerability data is typically presented. Policy reports show annual averages and projected trends. This piece compresses the stakes into half a minute, making the audience feel the disparity as a physical fact rather than a statistical one. Red needs no explanation. A fan breaking down needs no legend.</p>
+  <p>The audience for this installation is Georgia Tech students, people whose campus sits within three miles of some of Atlanta's most heat-vulnerable neighborhoods. The geographic arrangement of the grid makes that proximity impossible to ignore.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

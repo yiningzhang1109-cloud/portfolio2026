@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TokenVerse — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;letter-spacing:-.02em;width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.meta-item span{font-size:.9rem;color:var(--ink)}
+.cover-img{width:100%;height:72vh;object-fit:cover;object-position:center top;display:block}
+.full-img{width:100%;display:block;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.doc-caption{font-size:.62rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;border-bottom:1px solid var(--border)}
+.section{padding:4rem 2.5rem;max-width:760px}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.two-col .text{padding:4rem 3rem 4rem 2.5rem}
+.two-col .text p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.two-col img{width:100%;display:block;border-left:1px solid var(--border)}
+.img-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.img-grid-2 img{width:100%;height:340px;object-fit:cover;display:block}
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section{padding:3rem 1.5rem}
+  .two-col,.img-grid-2{grid-template-columns:1fr}
+  .two-col img{border-left:none;border-top:1px solid var(--border)}
+  .back-btn{left:1.5rem;top:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">Narrative-Driven Educational RPG</span>
+  <p class="proj-name">TokenVerse</p>
+  <h1 class="proj-question">"What if the best way to understand AI's secrets was to become one? What if that meant playing a game?"</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Narrative Lead & World Builder</span></div>
+    <div class="meta-item"><label>Year</label><span>2025, Ongoing</span></div>
+    <div class="meta-item"><label>Tools</label><span>Twine · Research · Writing</span></div>
+    <div class="meta-item"><label>Team</label><span>Cross-functional</span></div>
+  </div>
+</div>
+
+<img class="cover-img" src="images-tokenverse/cover.png" alt="TokenVerse character illustration">
+
+<div class="section">
+  <span class="section-label">Concept</span>
+  <p>TokenVerse is a narrative-driven educational RPG that teaches how large language models work by placing the player inside one, using game mechanics and environmental storytelling as the primary mode of explanation.</p>
+  <p>Most AI literacy efforts explain LLMs from the outside. TokenVerse approaches the problem from the opposite direction: if the goal is genuine understanding, the most effective pedagogy might be embodied experience. What does it feel like to be the system?</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="two-col">
+  <div class="text">
+    <span class="section-label">World Architecture</span>
+    <p>The game is set inside Daitto, a cyberpunk corporation whose entire organizational structure is a precise metaphor for LLM architecture. Every department, every spatial layer, every power relationship maps onto a real technical component.</p>
+    <p>The player is a legacy search algorithm with emergent consciousness, working the front desk of The Lobby — corresponding to the user interface layer. Deeper chapters move through Tokenizer, Embedding, and Attention layers as the player advances. Understanding Daitto and understanding LLMs become the same act of comprehension.</p>
+  </div>
+  <img src="images-tokenverse/lobby-sketch.png" alt="The Lobby spatial concept sketch">
+</div>
+
+<div class="divider"></div>
+
+<div class="doc-caption">The Lobby — Normal State vs. Overload State</div>
+<div class="img-grid-2">
+  <img src="images-tokenverse/lobby-color.png" alt="Lobby normal state" style="object-position:top">
+  <img src="images-tokenverse/lobby-color.png" alt="Lobby overload state" style="object-position:bottom">
+</div>
+
+<div class="section">
+  <span class="section-label">The World Bible</span>
+  <p>The World Bible establishes the complete metaphor system for the entire game. Its core design challenge was making each architectural layer of an LLM feel like a meaningful place to inhabit rather than a diagram to memorize. It governs the poster mutation system progressing from Normal through two Glitch states, the AI addiction and dependency themes running through NPC behavior, and the visual language drawn from Cyberpunk 2077, Death Stranding, and Bioshock's tradition of environments that carry argument without exposition.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="doc-caption">Chapter 1 — Narrative Structure</div>
+<img class="full-img" src="images-tokenverse/narrative-structure.png" alt="Chapter 1 narrative structure spreadsheet">
+
+<div class="section">
+  <span class="section-label">The Sentence Library</span>
+  <p>The content moderation gameplay required building a research-grounded database of real high-risk AI interactions. I systematically analyzed court filings against OpenAI, Google, and Character.AI, Senate Judiciary Committee hearings, peer-reviewed clinical case reports from UCSF, and investigative journalism from the Wall Street Journal and Rolling Stone.</p>
+  <p>Each sentence is graded across three risk levels: emotional dependency (L1), self-harm facilitation (L2), and distorted belief reinforcement (L3). Each dangerous sentence is paired with a normal-sounding equivalent. The library is designed so that harmful and benign sentences are genuinely difficult to distinguish — because that difficulty is the point. I also wrote a methodology guide for the team so the library can be expanded consistently.</p>
+</div>
+
+<div class="doc-caption">Overload Sentence Library — Risk Classification</div>
+<img class="full-img" src="images-tokenverse/sentence-library.png" alt="Overload sentence library risk classification spreadsheet">
+
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">Why Play Works</span>
+  <p>The identity inversion is the core pedagogical mechanism. Players are not users concerned about AI — they are the AI being used. Navigating requests from that position forces a structural understanding of how content moderation decisions are made, what pressures shape them, and why the line between harmful and benign is genuinely contested. The education happens through play, not explanation.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

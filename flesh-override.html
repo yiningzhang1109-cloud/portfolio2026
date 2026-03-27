@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flesh Override — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;letter-spacing:-.02em;width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.meta-item span{font-size:.9rem;color:var(--ink)}
+.cover-img{width:100%;height:72vh;object-fit:cover;display:block}
+.full-img{width:100%;display:block;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.img-caption{font-size:.62rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;border-bottom:1px solid var(--border)}
+.section{padding:4rem 2.5rem;max-width:760px}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.two-col .text{padding:4rem 3rem 4rem 2.5rem}
+.two-col .text p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.two-col img{width:100%;display:block;border-left:1px solid var(--border)}
+/* Hand images — full height hero */
+.hand-hero{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.hand-hero img{width:100%;height:540px;object-fit:cover;display:block}
+/* Cockpit small: text 2/3, image 1/3 */
+.cockpit-row{display:grid;grid-template-columns:2fr 1fr;align-items:center}
+.cockpit-row .text{padding:3.5rem 2.5rem}
+.cockpit-row .text p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.cockpit-row img{width:100%;display:block;border-left:1px solid var(--border);height:100%;object-fit:cover}
+/* Arduino row: image + dark quote panel */
+.arduino-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.arduino-row img{width:100%;height:440px;object-fit:cover;display:block}
+.arduino-quote{background:#111;padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
+.arduino-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-style:italic;color:#f0ebe3;line-height:1.25;margin-bottom:1.5rem}
+.arduino-quote p{font-size:.95rem;color:rgba(240,235,227,.65);line-height:1.8}
+.trilogy-bar{display:flex;gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trilogy-item{flex:1;background:var(--cream);padding:1.8rem 2rem}
+.trilogy-item.active{background:#111}
+.trilogy-num{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);display:block;margin-bottom:.4rem}
+.trilogy-item.active .trilogy-num{color:rgba(255,255,255,.5)}
+.trilogy-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ink)}
+.trilogy-item.active .trilogy-title{color:#fff}
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section,.cockpit-row .text,.arduino-quote{padding:3rem 1.5rem}
+  .two-col,.hand-hero,.cockpit-row,.arduino-row{grid-template-columns:1fr}
+  .two-col img,.cockpit-row img{border-left:none;border-top:1px solid var(--border)}
+  .hand-hero img{height:300px}
+  .arduino-row img{height:300px}
+  .trilogy-bar{flex-direction:column}
+  .back-btn{left:1.5rem;top:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">Physical Computing Installation · Trilogy Part III</span>
+  <p class="proj-name">Flesh Override</p>
+  <h1 class="proj-question">"When science fails completely, what do we trust instead?"</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Solo</span></div>
+    <div class="meta-item"><label>Year</label><span>2024</span></div>
+    <div class="meta-item"><label>Tools</label><span>Arduino · ml5.js · Physical Computing</span></div>
+  </div>
+</div>
+
+<div class="trilogy-bar">
+  <div class="trilogy-item"><span class="trilogy-num">Part I</span><p class="trilogy-title">Global Identity Postcard</p></div>
+  <div class="trilogy-item"><span class="trilogy-num">Part II</span><p class="trilogy-title">Thought Fortress</p></div>
+  <div class="trilogy-item active"><span class="trilogy-num">Part III</span><p class="trilogy-title">Flesh Override</p></div>
+</div>
+
+<img class="cover-img" src="images-flesh-override/cover.jpg" alt="Flesh Override installation">
+
+<div class="section">
+  <span class="section-label">Concept</span>
+  <p>Flesh Override is the third chapter of the speculative trilogy. Rational analysis failed completely in Thought Fortress. The spacecraft Milano has now departed for first contact negotiations. Navigation systems have malfunctioned. In this moment of total breakdown, the crew turns to Xiao Liu Ren — a Taoist divination practice with over a thousand years of continuous use, now encoded into a computational interface.</p>
+  <p>The piece asks a question that neither confirms nor dismisses either system of knowledge. If machine learning is pattern recognition trained on historical data, and if Xiao Liu Ren is pattern recognition trained on thousands of years of observed human experience, the boundary between them may be less categorical than it appears.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="two-col">
+  <div class="text">
+    <span class="section-label">Xiao Liu Ren</span>
+    <p>Xiao Liu Ren maps nine palace positions onto the joints and segments of the palm. A practitioner uses the thumb to count through these positions, multiplying by three to generate a reading — a structured procedure transforming inputs into outputs.</p>
+    <p>Where machine learning presents probabilities as truth, Xiao Liu Ren embraces productive ambiguity. Each reading offers guidance without guaranteeing outcomes. In contexts of radical uncertainty, this epistemological humility becomes pragmatic rather than primitive.</p>
+  </div>
+  <img src="images-flesh-override/xiao-liu-ren.jpg" alt="Xiao Liu Ren finger divination diagram">
+</div>
+
+<div class="divider"></div>
+
+<div class="img-caption">The Hand as Interface — ml5.js HandPose + Nine Palace Overlay</div>
+<div class="hand-hero">
+  <img src="images-flesh-override/hand-tracking.jpeg" alt="ml5.js hand tracking with 21 green keypoints">
+  <img src="images-flesh-override/nine-palace.png" alt="Nine palace positions overlaid on hand">
+</div>
+
+<div class="section">
+  <span class="section-label">The Body as Computational Substrate</span>
+  <p>The installation uses ml5.js HandPose to detect 21 keypoints on the user's hand in real time via camera. The system calculates distances between the thumb tip and finger segments to determine which of the nine palace positions the thumb contacts. When the thumb holds within threshold distance for two seconds, the system registers that position and advances.</p>
+  <p>The visual language borrows from traditional Chinese medical diagrams. Red dots at each keypoint connected by black lines evoke meridian maps used in acupuncture — confirming hand detection while framing the hand as an energetic system rather than mere anatomy.</p>
+</div>
+
+<div class="img-caption">Meridian Mapping — Palm as Cosmological Archive</div>
+<img class="full-img" src="images-flesh-override/meridian.png" alt="Red dot meridian lines overlaid on hand">
+
+<div class="divider"></div>
+
+<div class="cockpit-row">
+  <div class="text">
+    <span class="section-label">The Narrative Frame</span>
+    <p>The installation opens with a spacecraft cockpit in crisis. Instrument panels erupt in static. Fuel gauges collapse. Navigation fails. But in the lower left corner, a small green terminal remains stable: "ANCIENT NAVIGATION SYSTEM / XIAO LIU REN / Please scan biological signature." The entire sequence lasts under 15 seconds — establishing setting, demonstrating technological crisis, and naturalizing the turn toward ancient knowledge.</p>
+  </div>
+  <img src="images-flesh-override/cockpit.png" alt="Spacecraft cockpit showing system failures">
+</div>
+
+<div class="divider"></div>
+
+<div class="img-caption">Arduino Redundancy System</div>
+<div class="arduino-row">
+  <img src="images-flesh-override/arduino.jpg" alt="Arduino LCD displaying Divination completed with green LED">
+  <div class="arduino-quote">
+    <blockquote>"Sometimes reliability matters more than sophistication."</blockquote>
+    <p>Arduino runs as a parallel pathway independent of the browser. An LCD1602 displays system status. Three LEDs provide outcome indicators: green for auspicious, yellow for uncertain, red for inauspicious. If the computer crashes or hand tracking fails, divination continues through physical button presses. The redundancy argues that the most advanced solution is not always the most appropriate.</p>
+  </div>
+</div>
+
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">Re-Enchantment Through Contradiction</span>
+  <p>The project's central paradox cannot be resolved: it uses rational tools to generate non-rational guidance. This contradiction is the work's conceptual engine. The algorithm that detects hand gestures is no more understandable to most users than the Taoist cosmology it serves. What the installation stages is not mysticism versus rationalism, but two different inherited systems for making decisions when certainty is unavailable.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

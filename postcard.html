@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Identity Postcard — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;letter-spacing:-.02em;width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.meta-item span{font-size:.9rem;color:var(--ink)}
+.cover-img{width:100%;height:72vh;object-fit:cover;display:block}
+.full-img{width:100%;display:block;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.img-caption{font-size:.62rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;border-bottom:1px solid var(--border)}
+.section{padding:4rem 2.5rem;max-width:760px}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.two-col .text{padding:4rem 3rem 4rem 2.5rem}
+.two-col .text p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.two-col img{width:100%;display:block;border-left:1px solid var(--border)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.grid-2 img{width:100%;height:420px;object-fit:cover;display:block}
+/* trilogy context */
+.trilogy-bar{display:flex;gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trilogy-item{flex:1;background:var(--cream);padding:1.8rem 2rem}
+.trilogy-item.active{background:#111}
+.trilogy-num{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);display:block;margin-bottom:.4rem}
+.trilogy-item.active .trilogy-num{color:rgba(255,255,255,.5)}
+.trilogy-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ink)}
+.trilogy-item.active .trilogy-title{color:#fff}
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section{padding:3rem 1.5rem}
+  .two-col,.grid-2{grid-template-columns:1fr}
+  .two-col img{border-left:none;border-top:1px solid var(--border)}
+  .trilogy-bar{flex-direction:column}
+  .back-btn{left:1.5rem;top:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">Speculative Design Object · Trilogy Part I</span>
+  <p class="proj-name">Global Identity Postcard</p>
+  <h1 class="proj-question">"What invitation would unite all of humanity? Perhaps a shared fear is the most effective path to a global identity."</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Solo</span></div>
+    <div class="meta-item"><label>Year</label><span>2024</span></div>
+    <div class="meta-item"><label>Tools</label><span>3D Printing · Rhino · Speculative Design</span></div>
+  </div>
+</div>
+
+<!-- TRILOGY CONTEXT -->
+<div class="trilogy-bar">
+  <div class="trilogy-item active">
+    <span class="trilogy-num">Part I</span>
+    <p class="trilogy-title">Global Identity Postcard</p>
+  </div>
+  <div class="trilogy-item">
+    <span class="trilogy-num">Part II</span>
+    <p class="trilogy-title">Thought Fortress</p>
+  </div>
+  <div class="trilogy-item">
+    <span class="trilogy-num">Part III</span>
+    <p class="trilogy-title">Flesh Override</p>
+  </div>
+</div>
+
+<img class="cover-img" src="images-postcard/cover.jpg" alt="Global Identity Postcard front face">
+
+<!-- CONCEPT -->
+<div class="section">
+  <span class="section-label">Concept</span>
+  <p>Global Identity Postcard is a speculative design object and the first chapter of a narrative trilogy exploring cross-civilization communication, human cognition, and the limits of rationality.</p>
+  <p>This project began as a speculative design question: what conditions would actually produce a unified human identity? Not aspiration, not shared values, not diplomacy. The answer the project arrives at is threat. A civilization-level external threat is the only historical force that reliably dissolves the boundaries that otherwise define human groups against each other. A shared fear is the most effective path to a global identity.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- FRONT AND BACK -->
+<div class="img-caption">Front Face — Alien Signal Encoding</div>
+<div class="grid-2">
+  <img src="images-postcard/cover.jpg" alt="Postcard front — alien signal relief">
+  <img src="images-postcard/back.jpg" alt="Postcard back — three-civilization relationship map">
+</div>
+
+<!-- OBJECT DESCRIPTION -->
+<div class="section">
+  <span class="section-label">The Object</span>
+  <p>The postcard is a physical artifact from a silicon-based civilization. It is small enough to hold, strange enough to keep. The front surface encodes an alien signal in a relief that resists easy interpretation. The back maps the structural relationship between three civilizations: the senders, humanity, and the implied third party whose presence makes the invitation also a warning.</p>
+  <p>The object is 3D printed in black, with a material texture that reads as both technological and ancient. The choice to make it a postcard — the most intimate scale of human correspondence — is deliberate. Something this consequential arriving in this form collapses the distance between the cosmic and the personal.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- SIGNAL DESIGN -->
+<div class="two-col">
+  <div class="text">
+    <span class="section-label">Signal Design</span>
+    <p>The two circular forms on the front face encode the alien signal using a visual language designed to be clearly non-human while remaining formally legible. The organic irregularity of the left form and the geometric precision of the right suggest two different modes of meaning — one biological, one mathematical — existing in the same transmission.</p>
+    <p>The alien script along the postcard's surface was designed as a complete typographic system, not a decorative pattern. Each character has a consistent internal logic, suggesting a functional written language rather than invented ornament.</p>
+  </div>
+  <img src="images-postcard/signal-design.png" alt="Signal design — two circular forms">
+</div>
+
+<div class="divider"></div>
+
+<!-- ALIEN FONT -->
+<div class="img-caption">Alien Typographic System</div>
+<img class="full-img" src="images-postcard/alien-font.jpeg" alt="Alien font design">
+
+<!-- PROCESS -->
+<div class="section">
+  <span class="section-label">Technical Process</span>
+  <p>The object was designed in Rhino and 3D printed in black PLA. The relief depth on both faces was calibrated so that the forms read legibly under varied lighting conditions — deep enough to cast meaningful shadows, shallow enough to remain precise at postcard scale.</p>
+</div>
+
+<div class="img-caption">Rhino Modeling Process</div>
+<img class="full-img" src="images-postcard/rhino-process.jpeg" alt="Rhino 3D modeling process">
+
+<!-- TRILOGY NARRATIVE -->
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">The Trilogy</span>
+  <p>This postcard is the inciting artifact of a three-part speculative narrative. In Part II, Thought Fortress, humanity attempts to decode the messenger sent in response to accepting the invitation — and fails systematically. In Part III, Flesh Override, the spacecraft departs for first contact and its navigation systems collapse, forcing the crew to navigate by ancient divination. The postcard is the moment before humanity decides how to respond. Everything that follows is consequence.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

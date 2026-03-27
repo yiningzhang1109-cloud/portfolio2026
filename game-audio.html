@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Audio Prompt Tool — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;letter-spacing:-.02em;width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.meta-item span,.meta-item a{font-size:.9rem;color:var(--ink)}
+.meta-item a{text-decoration:underline}
+.cover-img{width:100%;height:72vh;object-fit:cover;object-position:top;display:block}
+.section{padding:4rem 2.5rem;max-width:760px}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+/* two stages */
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stage-item{background:var(--cream);padding:2.5rem}
+.stage-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(0,0,0,.12);line-height:1;display:block;margin-bottom:.8rem}
+.stage-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.05em}
+.stage-body{font-size:.95rem;line-height:1.85;color:#333}
+/* contrast table */
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.contrast-col{background:var(--cream);padding:2rem 2.5rem}
+.contrast-col.dark{background:#111}
+.contrast-head{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);display:block;margin-bottom:1.2rem}
+.contrast-col.dark .contrast-head{color:rgba(255,255,255,.4)}
+.contrast-item{font-size:.95rem;color:#333;padding:.5rem 0;border-bottom:1px solid var(--border);line-height:1.5}
+.contrast-col.dark .contrast-item{color:rgba(240,235,227,.7);border-bottom-color:rgba(255,255,255,.08)}
+.contrast-item:last-child{border-bottom:none}
+/* mode toggle visual */
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.mode-item{background:var(--cream);padding:2rem 2.5rem}
+.mode-label{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--ink);margin-bottom:.8rem}
+.mode-body{font-size:.95rem;line-height:1.85;color:#333}
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section{padding-left:1.5rem;padding-right:1.5rem}
+  .stages,.contrast,.mode-grid{grid-template-columns:1fr}
+  .back-btn{left:1.5rem;top:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">A Claude Skill for AI-Assisted Game Audio Composition</span>
+  <p class="proj-name">Game Audio Prompt Tool</p>
+  <h1 class="proj-question">"You know exactly how the scene should feel. You just don't have the words for it."</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Solo</span></div>
+    <div class="meta-item"><label>Year</label><span>2025</span></div>
+    <div class="meta-item"><label>Tools</label><span>Claude API · Prompt Engineering</span></div>
+    <div class="meta-item"><label>URL</label><a href="https://github.com/yiningzhang1109-cloud/Game-Audio-Prompt_SKill" target="_blank">GitHub ↗</a></div>
+  </div>
+</div>
+
+<img class="cover-img" src="images-game-audio/cover.png" alt="Game Audio Prompt Tool interface">
+
+<div class="section">
+  <span class="section-label">The Problem</span>
+  <p>AI music generation tools have a specific failure point. They perform well when given precise musical language: tempo, instrumentation, harmonic character, dynamic range. They perform poorly when given emotional descriptions of scenes — which is exactly how creators naturally think about the music they need.</p>
+  <p>The gap between how creators think about music and how these tools actually process input is where most attempts break down. This tool is designed to close that gap at the exact point where it opens.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="stages">
+  <div class="stage-item">
+    <span class="stage-num">01</span>
+    <p class="stage-title">Scene Analysis & Reference Discovery</p>
+    <p class="stage-body">The user describes a scene. The tool analyzes it across four dimensions: emotion, rhythm, tension, and theme. It then surfaces fourteen reference tracks from real film and game scores — seven that match the scene's emotional register, and seven that work in deliberate contrast against it. Each reference includes a direct link so the user can listen rather than imagine.</p>
+  </div>
+  <div class="stage-item">
+    <span class="stage-num">02</span>
+    <p class="stage-title">Parameter Extraction & Prompt Generation</p>
+    <p class="stage-body">The user selects the tracks that feel right. The tool extracts shared musical parameters across those choices: mode, tempo range, core instrumentation, rhythmic texture, dynamic behavior, timbral quality. These are assembled into a structured prompt formatted specifically for AI music generation tools. The user's intuitive response to real music becomes precise technical language.</p>
+  </div>
+</div>
+
+<div class="section">
+  <span class="section-label">The Match / Contrast Logic</span>
+  <p>The reference library is split into two categories by design. Match references reinforce the scene's emotional register — tension meets tension, melancholy meets melancholy. Contrast references work against it deliberately. Some of the most effective game audio decisions create meaning through opposition: a cheerful melody over horror, a lullaby over violence. Giving users both directions forces the creative decision to be conscious rather than defaulted.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="mode-grid">
+  <div class="mode-item">
+    <p class="mode-label">Match — Emotional Reinforcement</p>
+    <p class="mode-body">Music that amplifies what the scene already feels. Tension meets tension. Melancholy meets melancholy. The emotional logic is transparent — the scene and the music agree about what is happening.</p>
+  </div>
+  <div class="mode-item">
+    <p class="mode-label">Contrast — Deliberate Opposition</p>
+    <p class="mode-body">Music that works against the scene's surface register. A cheerful waltz over a horror sequence. A lullaby over isolation. The gap between image and sound generates unease or irony that neither element produces alone.</p>
+  </div>
+</div>
+
+<div class="divider" style="margin-top:0"></div>
+
+<div class="section">
+  <span class="section-label">Design Principle</span>
+  <p>This tool treats the human's inability to name musical qualities not as a deficit to be educated away but as a fixed condition to be designed around. The workflow meets creators where they are. The output — a structured Gemini Music prompt — contains only musical parameters, never narrative descriptions. What goes in as feeling comes out as tempo, key, instrumentation, and texture. The translation happens inside the tool, not inside the user's head.</p>
+</div>
+
+<div class="contrast">
+  <div class="contrast-col dark">
+    <span class="contrast-head">What goes in</span>
+    <p class="contrast-item">"A tense chase through a neon-lit alley"</p>
+    <p class="contrast-item">"Melancholy, like saying goodbye"</p>
+    <p class="contrast-item">"Epic but hollow — a victory that feels wrong"</p>
+  </div>
+  <div class="contrast-col">
+    <span class="contrast-head">What comes out</span>
+    <p class="contrast-item">Fast-paced driving strings at 140 BPM, staccato brass stabs</p>
+    <p class="contrast-item">Sparse piano, minor key, 55–65 BPM, sustained legato phrases</p>
+    <p class="contrast-item">Full orchestral swell, major key, sudden dynamic drop, cold reverb</p>
+  </div>
+</div>
+
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">Origin</span>
+  <p>This tool was built in response to a concrete task: designing game audio for TokenVerse. Facing the challenge of generating music that matched specific narrative moments, I identified the exact breakdown point between human creative intent and AI music generation capability — and built a system to bridge it. The tool is now a published Claude Skill, available as a reusable workflow for any project requiring AI-assisted audio composition.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>

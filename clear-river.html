@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clear River — Yining Zhang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn:hover{border-color:rgba(0,0,0,.3)}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
+.proj-header{padding:7rem 2.5rem 3rem}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;letter-spacing:-.02em;width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.meta-item span{font-size:.9rem;color:var(--ink)}
+.cover-img{width:100%;height:72vh;object-fit:cover;display:block}
+.full-img{width:100%;display:block;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.doc-caption{font-size:.62rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;border-bottom:1px solid var(--border)}
+.section{padding:4rem 2.5rem;max-width:760px}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.section p:last-child{margin-bottom:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+.two-col .text{padding:4rem 3rem 4rem 2.5rem}
+.two-col .text p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
+.two-col img{width:100%;display:block;border-left:1px solid var(--border)}
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.ref-item{background:var(--cream);padding:2rem 2.5rem}
+.ref-author{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ink);margin-bottom:.4rem}
+.ref-title{font-size:.78rem;color:var(--muted);margin-bottom:1rem;line-height:1.5}
+.ref-body{font-size:.92rem;line-height:1.8;color:#333}
+.endings-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border)}
+.ending-item{background:var(--cream);padding:2rem 2.5rem}
+.ending-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:.8rem;display:block}
+.ending-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--ink);margin-bottom:1rem}
+.ending-body{font-size:.92rem;line-height:1.8;color:#333}
+.divider{height:1px;background:var(--border);margin:0 2.5rem}
+@media(max-width:768px){
+  .proj-header{padding:6rem 1.5rem 2.5rem}
+  .section{padding:3rem 1.5rem}
+  .two-col,.ref-grid,.endings-grid{grid-template-columns:1fr}
+  .two-col img{border-left:none;border-top:1px solid var(--border)}
+  .back-btn{left:1.5rem;top:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">
+  <div class="back-icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </div>
+  Back to Index
+</a>
+
+<div class="proj-header">
+  <span class="proj-nature">Chinese Folk Horror Interactive Fiction Game</span>
+  <p class="proj-name">Clear River</p>
+  <h1 class="proj-question">"What if evil needed no villain, only culture, silence, and a village that simply works this way?"</h1>
+  <div class="proj-meta">
+    <div class="meta-item"><label>Role</label><span>Narrative & Dialogue Designer</span></div>
+    <div class="meta-item"><label>Year</label><span>2025, Ongoing</span></div>
+    <div class="meta-item"><label>Tools</label><span>Unity · Yarn Spinner</span></div>
+    <div class="meta-item"><label>Context</label><span>LMC 6317 · Georgia Tech</span></div>
+  </div>
+</div>
+
+<img class="cover-img" src="images-clear-river/cover.webp" alt="Clear River village map">
+
+<div class="section">
+  <span class="section-label">Concept</span>
+  <p>Clear River is a Chinese folk horror interactive fiction game set in 1990s rural China, exploring how institutional evil perpetuates itself through cultural silence and collective complicity.</p>
+  <p>The player is an investigative journalist entering an isolated mountain village to investigate a missing woman. Every NPC is complicit in a bride-trafficking network. None of them believe they are doing anything wrong. The horror is not dramatic. It is structural. The player does not watch manipulation happen. They feel it.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="two-col">
+  <div class="text">
+    <span class="section-label">The Trust Meter</span>
+    <p>The central mechanic is a direct inversion of Janet Murray's theory of agency in interactive narrative. Murray defines agency as the satisfying power to take meaningful action and see results. Clear River weaponizes that satisfaction.</p>
+    <p>Every dialogue option raises Trust. There is no correct choice that resists the system. The meter reads like progress. It is a trap. A higher Trust score means the NPCs have more successfully managed the player — deeper in the trap, not safer.</p>
+  </div>
+  <img src="images-clear-river/tools-trust.png" alt="Tools and Trust Meter design document">
+</div>
+
+<div class="divider"></div>
+
+<div class="doc-caption">Space Overview & NPC Movement Reference</div>
+<img class="full-img" src="images-clear-river/npc-space.png" alt="Clear River NPC space overview and hand-drawn map">
+
+<div class="section">
+  <span class="section-label">Tools & Technology</span>
+  <p>Unity 3D builds the 3D village environment and controls NPC physical movement across acts, enabling precise spatial storytelling: NPCs moving closer, doors locking, exits shrinking. Yarn Spinner handles all branching dialogue and Trust Meter triggers, allowing complex conditional logic without custom scripting. Unity Animator manages environmental changes engineered to feel coincidental rather than scripted — the spatial compression that defines the horror of Act Three is built entirely through these systems, never through explicit narrative announcement.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <span class="section-label">Academic Framework</span>
+  <p>The project is grounded in four theoretical frameworks, each with a specific mechanical application.</p>
+</div>
+
+<div class="ref-grid">
+  <div class="ref-item">
+    <p class="ref-author">Hannah Arendt</p>
+    <p class="ref-title">Eichmann in Jerusalem: A Report on the Banality of Evil (1963)</p>
+    <p class="ref-body">Grounds the central claim that perpetrators of institutional harm do not require malicious intent. Every NPC in Clear River is an Eichmann — competent, locally respected, and entirely unable to register the missing woman's suffering as real.</p>
+  </div>
+  <div class="ref-item">
+    <p class="ref-author">Irving L. Janis</p>
+    <p class="ref-title">Groupthink: Psychological Studies of Policy Decisions (1982)</p>
+    <p class="ref-body">Explains how a cohesive, isolated group suppresses dissent. The young villager who briefly signals the player then retreats into silence is the clearest embodiment of Janis's self-censorship mechanism made human.</p>
+  </div>
+  <div class="ref-item">
+    <p class="ref-author">Janet H. Murray</p>
+    <p class="ref-title">Hamlet on the Holodeck: The Future of Narrative in Cyberspace (1997)</p>
+    <p class="ref-body">Provides the interactive narrative theory undergirding the Trust Meter design. The Trust Meter is a direct inversion of Murray's agency framework, turning the pleasures of immersion and choice into instruments of the narrative's own argument.</p>
+  </div>
+  <div class="ref-item">
+    <p class="ref-author">Adam Scovell</p>
+    <p class="ref-title">Folk Horror: Hours Dreadful and Things Strange (2017)</p>
+    <p class="ref-body">Provides the Folk Horror Chain: Landscape, Isolation, Skewed Belief Systems, The Happening. Clear River transplants this framework into a Chinese rural context, arguing folk horror's mechanism describes any community that has made its own violence invisible.</p>
+  </div>
+</div>
+
+<div class="divider" style="margin-top:0"></div>
+
+<div class="section">
+  <span class="section-label">Three Endings</span>
+  <p>Each ending is a different variation on the same verdict: the system wins.</p>
+</div>
+
+<div class="endings-grid">
+  <div class="ending-item">
+    <span class="ending-label">Ending A</span>
+    <p class="ending-title">You Disappear</p>
+    <p class="ending-body">The player attempts to force entry to the locked room. The Village Chief appears. The final image is the interior of a locked room, with the player's recorder playing back their first-night interview. The Trust Meter is shown at maximum. TRUST ESTABLISHED fades in.</p>
+  </div>
+  <div class="ending-item">
+    <span class="ending-label">Ending B</span>
+    <p class="ending-title">You Are Incorporated</p>
+    <p class="ending-body">Trust Meter reaches maximum. The player attends a village ceremony. The final screen shows the article filed: Guardians of Tradition: A Village That Time Forgot, and Chose to Keep. No byline.</p>
+  </div>
+  <div class="ending-item">
+    <span class="ending-label">Ending C</span>
+    <p class="ending-title">You Escape — But Nothing Changes</p>
+    <p class="ending-body">The hardest path. The player consistently acts against every social instinct the game cultivates. They escape, file a report. Evidence insufficient. Case unresolved. The village is designated a Model Cultural Heritage Site the following year.</p>
+  </div>
+</div>
+
+<div class="divider" style="margin-top:0"></div>
+
+<div class="section" style="padding-bottom:8rem">
+  <span class="section-label">On the Medium</span>
+  <p>No other medium can make this argument with the same force. The player does not watch someone be gaslit; the player is gaslit. The interactive medium is not the vehicle for the argument. It is the argument itself.</p>
+</div>
+
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:1.2rem;
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;
+    font-style:italic;color:#111;text-decoration:none;opacity:.75;
+    transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
+      stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
+</div>
+
+</body>
+</html>
