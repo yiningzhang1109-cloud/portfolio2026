@@ -177,7 +177,13 @@ function tick(){
   cur.style.left=curX+'px'; cur.style.top=curY+'px';
   requestAnimationFrame(tick);
 }
-tick();
+// Restore scroll position from URL hash
+const hash = window.location.hash.slice(1);
+if (hash) {
+  const idx = PROJECTS.findIndex(p => p.id === hash);
+  if (idx >= 0) { scrollPos = idx; scrollTarget = idx; currentIdx = idx; }
+}
+  tick();
 </script>
 </body>
 </html>
