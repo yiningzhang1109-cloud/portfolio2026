@@ -3,59 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlanta Heat — Yining Zhang</title>
+<title>Feel the Heat / Yining Zhang</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--cream:#f0ebe3;--ink:#111;--muted:#888;--border:rgba(0,0,0,.09)}
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible',sans-serif;font-weight:400}
-
-.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;
-  display:flex;align-items:center;gap:.8rem;
-  background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;
-  border-radius:40px;border:1px solid rgba(0,0,0,.12);
-  backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);
-  font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
+.back-btn{position:fixed;top:2rem;left:2.5rem;z-index:100;display:flex;align-items:center;gap:.8rem;background:rgba(240,235,227,.92);padding:.7rem 1.4rem .7rem .9rem;border-radius:40px;border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.08);font-size:.88rem;color:#333;text-decoration:none;transition:border-color .2s}
 .back-btn:hover{border-color:rgba(0,0,0,.3)}
-.back-icon{width:36px;height:36px;border-radius:50%;
-  border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-icon{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .back-icon svg{width:15px;height:15px;stroke:#333;fill:none}
 
 .proj-header{padding:7rem 2.5rem 3rem}
-.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;
-  text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
-.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;
-  font-family:'Cormorant Garamond',serif}
-.proj-question{font-family:'Cormorant Garamond',serif;
-  font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;
-  color:var(--ink);line-height:.92;letter-spacing:-.02em;
-  width:100%;margin-bottom:3.5rem;text-align:center}
-.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;
-  padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;
-  text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
+.proj-nature{font-size:.75rem;color:#444;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.6rem;font-weight:700}
+.proj-name{font-size:1.4rem;color:#222;margin-bottom:2.5rem;font-weight:700;font-family:'Cormorant Garamond',serif}
+.proj-question{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;letter-spacing:-.02em;width:100%;margin-bottom:3.5rem;text-align:center}
+.proj-meta{display:flex;gap:3.5rem;flex-wrap:wrap;padding:1.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item label{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:700}
 .meta-item span{font-size:.9rem;color:var(--ink)}
 
-.video-label{font-size:.62rem;color:var(--muted);letter-spacing:.15em;
-  text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;
-  border-bottom:1px solid var(--border)}
+.cover-img{width:100%;height:72vh;object-fit:cover;object-position:center;display:block}
+.full-img{width:100%;display:block;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+.video-label{font-size:.62rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.9rem 2.5rem;border-bottom:1px solid var(--border)}
 .video-wrap{position:relative;width:100%;padding-bottom:56.25%;background:#000}
 .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 
+.two-video{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.two-video .video-block{display:flex;flex-direction:column}
+.two-video .video-label{border-bottom:1px solid var(--border)}
+.two-video .video-wrap{padding-bottom:56.25%}
+
 .section{padding:4rem 2.5rem;max-width:760px}
-.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;
-  text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
+.section-label{font-size:.68rem;color:#555;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:1.8rem;font-weight:700}
 .section p{font-size:1.08rem;line-height:1.9;color:#222;margin-bottom:1.6rem}
 .section p:last-child{margin-bottom:0}
+
+/* Interaction steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.step-item{background:var(--cream);padding:2rem 1.8rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:rgba(0,0,0,.12);line-height:1;display:block;margin-bottom:.8rem}
+.step-title{font-size:.78rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}
+.step-body{font-size:.88rem;line-height:1.8;color:#444}
+
+/* Phone call grid */
+.calls-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.call-item{background:#111;padding:2rem 2.2rem}
+.call-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.35);display:block;margin-bottom:.8rem}
+.call-text{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.6}
 
 .divider{height:1px;background:var(--border);margin:0 2.5rem}
 
 @media(max-width:768px){
   .proj-header{padding:6rem 1.5rem 2.5rem}
   .section{padding:3rem 1.5rem}
+  .steps{grid-template-columns:1fr 1fr}
+  .calls-grid{grid-template-columns:1fr}
+  .two-video{grid-template-columns:1fr}
   .back-btn{left:1.5rem;top:1.5rem}
-  .proj-meta{gap:2rem}
 }
 </style>
 </head>
@@ -71,51 +77,127 @@ body{background:var(--cream);color:var(--ink);font-family:'Atkinson Hyperlegible
 </a>
 
 <div class="proj-header">
-  <span class="proj-nature">Critical Data Visualization Installation</span>
-  <p class="proj-name">Atlanta Heat</p>
-  <h1 class="proj-question">"Your neighborhood and mine are three miles apart. Why does yours have fans that still work?"</h1>
+  <span class="proj-nature">Embodied Interactive Installation · Critical Data Visualization</span>
+  <p class="proj-name">Feel the Heat</p>
+  <h1 class="proj-question">"Despite living under the same sun, why are certain communities left to burn?"</h1>
   <div class="proj-meta">
-    <div class="meta-item"><label>Role</label><span>Team</span></div>
+    <div class="meta-item"><label>Role</label><span>Team (Maha Sidi · Yining Zhang)</span></div>
     <div class="meta-item"><label>Year</label><span>2026</span></div>
-    <div class="meta-item"><label>Tools</label><span>P5.js · Figma</span></div>
+    <div class="meta-item"><label>Tools</label><span>P5.js · Pose Tracking · Figma</span></div>
     <div class="meta-item"><label>Exhibition</label><span>Georgia Tech Media Bridge</span></div>
+    <div class="meta-item"><label>Context</label><span>LMC 6650 · Georgia Tech</span></div>
   </div>
 </div>
 
-<div class="video-label">Installation Demo</div>
+<img class="cover-img" src="images-atlanta-heat/cover-title.png" alt="Feel the Heat fan grid interface">
+
+<div class="video-label">Project Overview</div>
 <div class="video-wrap">
-  <iframe src="https://www.youtube.com/embed/w8RZtwTQsOk?rel=0&modestbranding=1"
+  <iframe src="https://www.youtube.com/embed/ukr2NdZ0NEQ?rel=0&modestbranding=1"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
 </div>
 
+<!-- CONCEPT -->
 <div class="section">
   <span class="section-label">Concept</span>
-  <p>Atlanta Heat is a critical data visualization installation currently displayed on Georgia Tech's Media Bridge, exploring heat vulnerability disparities across Atlanta neighborhoods through motion, sound, and failure.</p>
-  <p>Heat vulnerability data exists. What it lacks is urgency. This project asked a specific design question: how do you make inequality visible and immediate to an audience that is geographically close to it but experientially distant from it?</p>
+  <p>Feel the Heat is an embodied interactive installation on Georgia Tech's Media Bridge. It begins with a simple question: what would it feel like to be the person who needs more of everything just to stay cool? The piece does not try to answer that question through charts or statistics. It asks you to answer it through your body.</p>
+  <p>Twelve fans on the display represent twelve Atlanta neighborhoods, each labeled and colored according to its heat vulnerability level. When a passerby stops and starts doing jumping jacks, their movement powers all twelve fans at once. The fans spin from the same energy you generate. But they do not respond the same way. Some neighborhoods need far more from you before their ring completes. More jumping jacks, more effort, more time standing in the sun. The same body, doing the same thing, producing unequal results for people who never had equal conditions to begin with.</p>
 </div>
 
 <div class="divider"></div>
 
+<!-- OUTSIDE PHOTO full width -->
+<img class="full-img" src="images-atlanta-heat/outside.png" alt="Students interacting with Feel the Heat on Georgia Tech Media Bridge">
+
+<!-- INTERACTION DESIGN -->
 <div class="section">
-  <span class="section-label">Design Logic</span>
-  <p>Each neighborhood is represented by a rotating fan. Rotation speed is driven directly by heat vulnerability data: lower vulnerability, faster spin. As vulnerability increases, fans slow, shift toward red, and eventually break down entirely, accompanied by engine sounds that build and distort until the moment of collapse. The sound of a fan dying is not a metaphor. It is what the data sounds like when you let it behave honestly.</p>
-  <p>The grid is arranged geographically relative to Georgia Tech, so the spatial relationship between the campus and the most affected communities is physically present without requiring a map. The 30-second motif compresses the stakes into the time it takes to walk from one block to the next, replacing statistical distance with felt proximity.</p>
+  <span class="section-label">Interaction Design</span>
+  <p>The installation is built around one gesture that needs no explanation. A figure on screen demonstrates jumping jacks. You do them. A camera positioned above the display uses pose tracking to read your movement and convert it into two things: fan rotation speed and progress ring advancement around each neighborhood cell.</p>
+  <p>The experience changes depending on who participates. When one person stands alone and powers all twelve fans, the disparity is immediately visible. Some rings fill within seconds while others seem to resist every rep. When a group joins together, the most resistant fans finally start moving faster. But even then, the gap does not disappear. Some neighborhoods always required more to reach the same place. That is the point the installation is trying to make you feel, not just understand.</p>
 </div>
 
-<div class="divider"></div>
-
-<div class="video-label">On Display — Georgia Tech Media Bridge</div>
-<div class="video-wrap">
-  <iframe src="https://www.youtube.com/embed/KR1UU9Mw20M?rel=0&modestbranding=1"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
+<!-- INTERACTION STEPS -->
+<div class="steps">
+  <div class="step-item">
+    <span class="step-num">01</span>
+    <p class="step-title">Stand & Detect</p>
+    <p class="step-body">Passerby stops in front of the Media Bridge. Camera detects presence via pose tracking and activates the interface.</p>
+  </div>
+  <div class="step-item">
+    <span class="step-num">02</span>
+    <p class="step-title">Do Jumping Jacks</p>
+    <p class="step-body">Each rep powers all twelve fans simultaneously. Movement is mapped directly to rotation speed and progress ring advancement.</p>
+  </div>
+  <div class="step-item">
+    <span class="step-num">03</span>
+    <p class="step-title">Unequal Resistance</p>
+    <p class="step-body">High-vulnerability neighborhoods require more jumping jacks to complete their ring. The same energy produces different outcomes for different communities.</p>
+  </div>
+  <div class="step-item">
+    <span class="step-num">04</span>
+    <p class="step-title">Unlock & Listen</p>
+    <p class="step-body">When a ring completes, that neighborhood expands fullscreen and plays a real phone call from a resident. The data becomes a voice.</p>
+  </div>
 </div>
 
-<div class="section" style="padding-bottom:8rem">
-  <span class="section-label">Critical Approach</span>
-  <p>The project departs from how heat vulnerability data is typically presented. Policy reports show annual averages and projected trends. This piece compresses the stakes into half a minute, making the audience feel the disparity as a physical fact rather than a statistical one. Red needs no explanation. A fan breaking down needs no legend.</p>
-  <p>The audience for this installation is Georgia Tech students, people whose campus sits within three miles of some of Atlanta's most heat-vulnerable neighborhoods. The geographic arrangement of the grid makes that proximity impossible to ignore.</p>
+<!-- PHONE CALLS -->
+<div class="section">
+  <span class="section-label">The Phone Calls</span>
+  <p>Each time a neighborhood ring completes, that community expands to fill the screen and plays a phone call. These calls were developed through research into the real experiences of Atlanta residents and are designed to sound exactly like what they are: ordinary conversations about conditions that should not be ordinary. A facilities manager scheduling an upgrade. A neighbor who is not picking up. A mother doing the math on a bill she cannot afford to pay.</p>
+</div>
+
+<div class="calls-grid">
+  <div class="call-item">
+    <span class="call-label">Facilities Manager</span>
+    <p class="call-text">"Confirming a campus-wide HVAC upgrade. The new system should be fully operational before summer."</p>
+  </div>
+  <div class="call-item">
+    <span class="call-label">Neighbor</span>
+    <p class="call-text">"I've been trying to reach him all afternoon. He's not picking up. He doesn't have AC in there."</p>
+  </div>
+  <div class="call-item">
+    <span class="call-label">Mother</span>
+    <p class="call-text">"I can't do both this month. Either groceries or the AC bill. I don't know what I'm going to tell the kids."</p>
+  </div>
+</div>
+
+<div class="divider" style="margin-top:0"></div>
+
+<!-- DEMO VIDEOS -->
+<div class="two-video">
+  <div class="video-block">
+    <div class="video-label">Interaction Demo</div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/3eC9kWH-Mz8?rel=0&modestbranding=1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="video-block">
+    <div class="video-label">On Display · Media Bridge</div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/cwX7FLqcJys?rel=0&modestbranding=1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- REFLECTION -->
+<div class="section" style="padding-bottom:2rem">
+  <span class="section-label">Why the Body</span>
+  <p>Atlanta's heat vulnerability data has been public for years. The maps exist. The numbers have been reported. What they have not been able to do is make you feel the weight of what they describe. This installation starts from the belief that the body understands things the mind can read past. When you are standing in the sun, moving your arms and legs, and watching a progress ring resist every repetition you give it, something lands differently than it does on a page.</p>
+  <p>By the time the last fan completes, your face is warm and your breathing has changed. You start to think about why these particular neighborhoods required so much more from you, and what it has meant for the people who live inside them all summer long, every summer, without the option of walking away when it gets to be too much.</p>
+</div>
+
+<div style="padding:5rem 2.5rem 7rem;text-align:center;border-top:1px solid rgba(0,0,0,.09)">
+  <a href="index.html#atlanta-heat" style="display:inline-flex;align-items:center;gap:1.2rem;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;font-style:italic;color:#111;text-decoration:none;opacity:.75;transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.75">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Index
+  </a>
 </div>
 
 </body>
